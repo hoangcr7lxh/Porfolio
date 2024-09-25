@@ -1,0 +1,858 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./FinalProject.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+      integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Emblema+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chonburi&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .text-container {
+        position: relative; 
+        display: inline-block; 
+      }
+
+      .bottom-text {
+        position: relative; 
+      }
+
+      .top-text {
+        position: absolute; 
+        top: 0; 
+        left: 0;
+        opacity: 0.8; 
+      }
+      .chonburi-regular {
+        font-family: "Chonburi", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .emblema-one-regular {
+        font-family: "Emblema One", system-ui;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .strock {
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: rgb(5, 66, 109);
+      }
+      @media (max-width: 768px) {
+        .mobile {
+          display: none;
+        }
+      }
+    </style>
+    <style type="text/css">
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .codepro-btn:active,
+      .codepro-btn:hover,
+      .codepro-btn:focus {
+        outline: 0 !important;
+        outline-offset: 0;
+      }
+      .codepro-btn::before,
+      .codepro-btn::after {
+        position: absolute;
+        content: "";
+      }
+      .codepro-btn-holder {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 1000px;
+      }
+      .codepro-btn {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        min-width: 150px;
+      }
+      .codepro-btn span {
+        position: relative;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 8px;
+        font-weight: bold;
+        letter-spacing: 0px;
+        text-transform: ;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 20px;
+        transition: 0.3s;
+      }
+      .codepro-btn-2::before {
+        background-color: rgb(9, 110, 182);
+        transition: 0.3s ease-out;
+      }
+      .codepro-btn-2 span {
+        color: rgb(9, 110, 182);
+        border: 2px solid rgb(9, 110, 182);
+        transition: 0.2s;
+      }
+      .codepro-btn-2 span:hover {
+        color: rgb(255, 255, 255);
+        transition: 0.2s 0.1s;
+      }
+      .codepro-btn.hover-slide-left::before {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 0%;
+      }
+      .codepro-btn.hover-slide-left:hover::before {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="flex px-7 items-center justify-between mt-6 md:mt-0 md:h-28 md:w-[75rem] ml-auto mr-auto"
+    >
+      <img src="./image/Logonho.png" alt="" />
+      <div id="desktopMenu" class="hidden md:flex gap-11 items-center">
+        <a
+          href="index.html"
+          target="_self"
+          class="text-base leading-6 font-bold text-accent-500"
+          >HOME</a
+        >
+        <a
+          href="Aboutme.html"
+          target="_self"
+          class="text-base leading-6 font-bold text-gray-500 hover:text-accent-500"
+        >
+          ABOUT ME
+        </a>
+        <a
+          href="Portfolio.html"
+          target="_self"
+          class="text-base leading-6 font-bold text-gray-500 hover:text-accent-500"
+        >
+          PORTFOLIO
+        </a>
+        <a
+          href="Contact.html"
+          target="_self"
+          class="text-base leading-6 font-bold text-white bg-accent-100 hover:bg-accent-500 hover:shadow-xl hover:shadow-accent-100/50 py-1.5 px-3.5 rounded-lg"
+        >
+          CONTACT
+        </a>
+      </div>
+      <img
+        src="./image/TextAlignRight.svg"
+        alt=""
+        class="md:hidden size-10"
+        onclick="toggleMobileMenu()"
+      />
+      <div
+        id="mobileMenuOverlay"
+        class="fixed bg-black hidden opacity-70 top-0 left-0 size-full z-30"
+      ></div>
+      <div
+        id="mobileMenu"
+        class="fixed w-full bg-white opacity-90 h-screen top-0 right-0 hidden flex-col items-end p-7 z-40"
+      >
+        <img
+          src="./image/XLogo.svg"
+          alt=""
+          class="size-10 mb-20"
+          onclick="toggleMobileMenu()"
+        />
+        <div class="flex flex-col justify-center mr-9 items-end gap-16">
+          <a
+            href="index.html"
+            target="_self"
+            class="chonburi-regular text-[32px] leading-10 font-medium text-accent-700"
+          >
+            HOME
+          </a>
+          <a
+            href="Aboutme.html"
+            target="_self"
+            class="chonburi-regular text-[32px] leading-10 font-medium text-accent-700"
+          >
+            ABOUT ME
+          </a>
+          <a
+            href="Portfolio.html"
+            target="_self"
+            class="chonburi-regular text-[32px] leading-10 font-medium text-accent-700"
+          >
+            PORTFOLIO
+          </a>
+          <a
+            href="Contact.html"
+            target="_self"
+            class="chonburi-regular text-[32px] leading-10 font-medium text-accent-700"
+          >
+            CONTACT
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="text-base leading-6 mt-8 md:text-2xl md:leading-8 font-normal text-center md:mt-12"
+    >
+      👋 Hi, I’m Hoang. And this is website. Thank you for visiting.
+    </div>
+    <div
+      class="wow animate__animated animate__fadeInRight emblema-one-regular text-center text-accent-700 leading-8 md:leading-none mt-4 md:mt-16 tracking-1 text-[32px] md:tracking-[-.1em] md:text-[137px]"
+    >
+      UI/UX Designer
+    </div>
+    <div
+      class="wow animate__animated animate__fadeInLeft emblema-one-regular text-center leading-8 md:leading-none mt-1 md:mt-6 text-[32px] md:text-[137px] tracking-1 md:tracking-[-.1em]"
+      style="
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: rgb(5, 66, 109);
+        -webkit-text-fill-color: rgb(255, 255, 255);
+      "
+    >
+      & GraphicDesign
+    </div>
+
+    <div class="flex md:flex-col items-center gap-2">
+      <div
+        class="container flex flex-col md:flex-row items-center gap-2 justify-between md:w-[75rem]"
+      >
+        <div
+          class="animate__animated animate__slideInLeft md:mt-14 mt-6 md:text-2xl text-base leading-6 md:leading-8 font-normal"
+        >
+          based in Ho Chi Minh, Viet Nam
+        </div>
+        <div
+          class="animate__animated animate__slideInRight md:mt-14 mt-0 md:text-2xl text-base leading-6 md:leading-8 font-normal"
+        >
+          I am a Freelance, thank you!
+        </div>
+      </div>
+    </div>
+
+    <img
+      src="./image/AVATAR.png"
+      class="mt-7 absolute md:left-1/2 md:-translate-x-1/2 md:top-56 z-10"
+    />
+    <div
+      class="flex z-20 justify-center items-center border-solid border-white border-2 bg-white bg-opacity-20 gap-2 md:gap-2.5 h-[3.309573rem] md:h-[5.125rem] w-[14.8125rem] md:w-[22.9375rem] rounded-[32.29px] md:rounded-[50px] left-1/2 -translate-x-1/2 absolute top-[590px] md:top-[630px]"
+    >
+      <div
+        class="flex items-center justify-center bg-accent-500 border-solid border-white border-red-100 rounded-[38.75px] md:rounded-[60px] h-[2.5025rem] md:h-[3.875rem] w-[8.395rem] md:w-[13rem]"
+      >
+        <div
+          class="text-base leading-6 md:text-2xl md:leading-8 font-medium text-white"
+        >
+          Portfolio
+        </div>
+        <img src="./image/up right small.png" alt="" />
+      </div>
+      <div
+        class="text-base leading-6 md:text-2xl md:leading-8 font-medium text-white py-[6.46px] px-[12.92px] md:py-2.5 md:px-5"
+      >
+        Hire me
+      </div>
+    </div>
+
+    <div
+      class="container px-7 flex flex-col md:px-0 md:flex-row items-center justify-between gap-4 md:gap-6 mt-[490px] md:mt-64 md:mr-auto md:ml-auto md:w-[75rem]"
+    >
+      <div class="flex flex-col gap-4 md:gap-11">
+        <div class="flex flex-col gap-1 md:gap-3">
+          <div class="flex gap-2">
+            <div class="text-2xl md:text-4xl leading-8 md:leading-10 font-bold">
+              About
+            </div>
+            <div
+              class="text-2xl md:text-4xl leading-8 md:leading-10 font-bold text-accent-500"
+            >
+              Me
+            </div>
+          </div>
+          <div
+            class="w-[2rem] md:w-[4.0625rem]"
+            style="height: 1px; background-color: black"
+          ></div>
+        </div>
+        <div class="flex flex-col text-xs leading-4 font-normal md:text-body">
+          <div class="text-xs leading-5 font-normal md:text-body">
+            Hello, I'm Hoang
+          </div>
+          <div class="text-xs leading-5 font-normal md:text-body">
+            I started my studies in Chemical Engineering, after 5 years of
+            working I wanted to change jobs due to my health in the future.
+          </div>
+          <div class="text-xs leading-5 font-normal md:text-body">
+            After a period of research, I learned about graphic design, I like
+            creativity and drawing, not being constrained by rigidity. I think
+            this graphic design industry is more suitable for me than my current
+            job. When I do things I like, I always feel comfortable mentally and
+            full of energy.
+          </div>
+          <div class="text-xs leading-5 font-normal md:text-body">
+            There are many opportunities in life, so I stepped out of my comfort
+            zone to start a new career in graphic design.
+          </div>
+        </div>
+      </div>
+      <img src="./image/me1.png" alt="" />
+    </div>
+
+    <div
+      class="flex flex-col px-7 items-center justify-between gap-4 md:gap-11 mt-6 md:mt-28 mr-auto ml-auto"
+    >
+      <div
+        class="flex flex-col items-center gap-2 md:w-[34.875rem] md:h-[7.25rem]"
+      >
+        <div class="flex flex-col items-center gap-1 md:gap-3">
+          <div class="flex gap-2">
+            <div class="text-2xl md:text-4xl leading-8 md:leading-10 font-bold">
+              My
+            </div>
+            <div
+              class="text-2xl md:text-4xl leading-8 md:leading-10 font-bold text-accent-500"
+            >
+              Services
+            </div>
+          </div>
+          <div
+            class="w-[2rem] md:w-[4.0625rem]"
+            style="height: 1px; background-color: black"
+          ></div>
+        </div>
+        <div class="text-sm leading-5 font-normal md:text-body text-center">
+          I specialize in UI/UX & Graphic Design and my passion is all about
+          building elegant and professional user interfaces.
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+        <div
+          class="flex flex-col gap-8 items-center justify-center border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 w-[16.25rem] md:w-[17.625rem]"
+          style="height: 241px; border-radius: 10px"
+        >
+          <img src="./image/icon1.png" alt="" />
+          <div class="flex flex-col items-center justify-center gap-3">
+            <div class="text-xl leading-7 md:text-2xl md:leading-8 font-bold">
+              UI/UX
+            </div>
+            <div
+              class="text-xs leading-4 md:text-sm md:leading-5 font-normal text-center"
+              style="width: 265px"
+            >
+              Proin egestas, nisi vitae hendrerit maximus, mauris nunc facilisis
+              odi.
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col gap-8 items-center justify-center border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 w-[16.25rem] md:w-[17.625rem]"
+          style="height: 241px; border-radius: 10px"
+        >
+          <img src="./image/icon2.png" alt="" />
+          <div class="flex flex-col items-center justify-center gap-3">
+            <div class="text-xl leading-7 md:text-2xl md:leading-8 font-bold">
+              Web Design
+            </div>
+            <div
+              class="text-xs leading-4 md:text-sm md:leading-5 font-normal text-center"
+              style="width: 265px"
+            >
+              Proin egestas, nisi vitae hendrerit maximus, mauris nunc facilisis
+              odi.
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col gap-8 items-center justify-center border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 w-[16.25rem] md:w-[17.625rem]"
+          style="height: 241px; border-radius: 10px"
+        >
+          <img src="./image/icon3.png" alt="" />
+          <div class="flex flex-col items-center justify-center gap-3">
+            <div class="text-xl leading-7 md:text-2xl md:leading-8 font-bold">
+              App Design
+            </div>
+            <div
+              class="text-xs leading-4 md:text-sm md:leading-5 font-normal text-center"
+              style="width: 265px"
+            >
+              Proin egestas, nisi vitae hendrerit maximus, mauris nunc facilisis
+              odi.
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col gap-8 items-center justify-center border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 w-[16.25rem] md:w-[17.625rem]"
+          style="height: 241px; border-radius: 10px"
+        >
+          <img src="./image/icon4.png" alt="" />
+          <div class="flex flex-col items-center justify-center gap-3">
+            <div class="text-xl leading-7 md:text-2xl md:leading-8 font-bold">
+              Graphic Design
+            </div>
+            <div
+              class="text-xs leading-4 md:text-sm md:leading-5 font-normal text-center"
+              style="width: 265px"
+            >
+              Proin egestas, nisi vitae hendrerit maximus, mauris nunc facilisis
+              odi.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col px-7 items-center gap-4 md:gap-11 mt-10 md:mt-24 mr-auto ml-auto"
+    >
+      <div
+        class="flex flex-col items-center gap-2 md:w-[34.875rem] h-[6.5rem] md:h-[7.25rem]"
+      >
+        <div class="flex flex-col items-center gap-1 md:gap-3">
+          <div class="flex gap-2">
+            <div class="text-2xl md:text-4xl leading-8 md:leading-10 font-bold">
+              My
+            </div>
+            <div
+              class="text-2xl md:text-4xl leading-8 md:leading-10 font-bold text-accent-500"
+            >
+              Portfolio
+            </div>
+          </div>
+          <div
+            class="w-[2rem] md:w-[4.0625rem]"
+            style="height: 1px; background-color: black"
+          ></div>
+        </div>
+        <div class="text-sm leading-5 font-normal md:text-body text-center">
+          There are many variations of passages of Lorem Ipsum available, but
+          the majority have suffered alteration.
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 md:gap-6 items-center">
+        <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
+          <div
+            class="flex flex-col gap-4 pb-2 md:pb-5 border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 rounded-lg w-[19.6875rem] md:w-[24rem] h-[28rem] md:h-[29.75rem]"
+          >
+            <img src="./image/Vietravel app.png" alt="" />
+            <div class="flex flex-col gap-5 px-5">
+              <div class="flex flex-col gap-3">
+                <div class="flex flex-col gap-1">
+                  <div class="text-sm leading-5 font-normal text-neutral-600">
+                    UI-UX DESIGN
+                  </div>
+                  <div class="text-xl leading-7 font-bold">
+                    Viettravel Mobile App
+                  </div>
+                </div>
+                <div class="text-sm leading-5 font-normal text-neutral-400">
+                  The App provides information and support in planning a travel
+                  trip according to the original plan
+                </div>
+              </div>
+              <div>
+                <button
+                  class="codepro-btn codepro-btn-2 hover-slide-left"
+                  target="blank"
+                  title="Code Pro"
+                  onclick="window.open('https://www.figma.com/proto/Ta9G1qwFYC8TEzDx5yQE0Y/L%C3%AA-Xu%C3%A2n-Ho%C3%A0ng---UI-Design-Foundation---Th%C3%A1ng-04%2F2024?page-id=2001%3A1380&node-id=2299-7046&node-type=canvas&viewport=-14813%2C4723%2C1.2&t=uAqerxgJjLYvneQO-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2235%3A5037')"
+                >
+                  <span>Case Study</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 pb-2 md:pb-5 border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 rounded-lg w-[19.6875rem] md:w-[24rem] h-[28rem] md:h-[29.75rem]"
+          >
+            <img src="./image/HOANG VIET.png" alt="" />
+            <div class="flex flex-col gap-5 px-5">
+              <div class="flex flex-col gap-3">
+                <div class="flex flex-col gap-1">
+                  <div class="text-sm leading-5 font-normal text-neutral-600">
+                    GRAPHIC DESIGN
+                  </div>
+                  <div class="text-xl leading-7 font-bold">
+                    Hoang Viet Rice Branding
+                  </div>
+                </div>
+                <div class="text-sm leading-5 font-normal text-neutral-400">
+                  Understanding the importance of rice in the lives of
+                  Vietnamese people, Hoang Viet was born with the...
+                </div>
+              </div>
+              <div>
+                <button
+                  class="codepro-btn codepro-btn-2 hover-slide-left"
+                  target="blank"
+                  title="Code Pro"
+                  onclick="window.open('https://drive.google.com/file/d/1g_mdMUIsiV-LicSYBWX8JxtvpjxVj0Bk/view?usp=sharing')"
+                >
+                  <span>Case Study</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 pb-2 md:pb-5 border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 rounded-lg w-[19.6875rem] md:w-[24rem] h-[28rem] md:h-[29.75rem]"
+          >
+            <img src="./image/VIETTRAVEL ƯEB.png" alt="" />
+            <div class="flex flex-col gap-5 px-5">
+              <div class="flex flex-col gap-3">
+                <div class="flex flex-col gap-1">
+                  <div class="text-sm leading-5 font-normal text-neutral-600">
+                    WEB DESIGN
+                  </div>
+                  <div class="text-xl leading-7 font-bold">Viettravel Web</div>
+                </div>
+                <div class="text-sm leading-5 font-normal text-neutral-400">
+                  This project aims to provide detailed information about
+                  tourist destinations allowing customers...
+                </div>
+              </div>
+              <div>
+                <button
+                  class="codepro-btn codepro-btn-2 hover-slide-left"
+                  target="blank"
+                  title="Code Pro"
+                  onclick="window.open('https://www.figma.com/proto/asQBJca7RBNHB9zxr6rMlJ/Vietravel-Web-%7C-TELOS-Academy-%5BWebDesign%5D---L%C3%AA-Xu%C3%A2n-Ho%C3%A0ng?page-id=58%3A1018&node-id=65-29041&node-type=canvas&viewport=767%2C359%2C1&t=8A63Gq96C2ndG7Ke-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=65%3A29041')"
+                >
+                  <span>Case Study</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
+          <div
+            class="flex flex-col gap-4 mb-2 md:pb-5 border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 rounded-lg w-[19.6875rem] md:w-[24rem] h-[28rem] md:h-[29.75rem]"
+          >
+            <img src="./image/GOTOFOOD.png" alt="" />
+            <div class="flex flex-col gap-5 px-5">
+              <div class="flex flex-col gap-3">
+                <div class="flex flex-col gap-1">
+                  <div class="text-sm leading-5 font-normal text-neutral-600">
+                    UI-UX DESIGN
+                  </div>
+                  <div class="text-xl leading-7 font-bold">
+                    GotoFood Mobile App
+                  </div>
+                </div>
+                <div class="text-sm leading-5 font-normal text-neutral-400">
+                  This project aims to develop a specialized food ordering
+                  application for office, helping them have...
+                </div>
+              </div>
+              <div>
+                <button
+                  class="codepro-btn codepro-btn-2 hover-slide-left"
+                  target="blank"
+                  title="Code Pro"
+                  onclick="window.open('https://www.figma.com/proto/NUdO0grz56ivbGH1oFrYZl/GotoFood-%7C-TELOS-Academy-%5BUX-19%5D---L%C3%AA-Xu%C3%A2n-Ho%C3%A0ng?page-id=1%3A3&node-id=60-485&node-type=canvas&viewport=131%2C489%2C0.06&t=1FCsAQ93tJTzxLER-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=60%3A485')"
+                >
+                  <span>Case Study</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 pb-5 border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 rounded-lg w-[19.6875rem] md:w-[24rem] h-[28rem] md:h-[29.75rem]"
+          >
+            <img src="./image/GEB IELS.png" alt="" />
+            <div class="flex flex-col gap-5 px-5">
+              <div class="flex flex-col gap-3">
+                <div class="flex flex-col gap-1">
+                  <div class="text-sm leading-5 font-normal text-neutral-600">
+                    LOGO-BRANDING
+                  </div>
+                  <div class="text-xl leading-7 font-bold">Geb Ielts</div>
+                </div>
+                <div class="text-sm leading-5 font-normal text-neutral-400">
+                  The logo is inspired by the image of a kite and an arrow, with
+                  the purpose of showing perseverance...
+                </div>
+              </div>
+              <div>
+                <button
+                  class="codepro-btn codepro-btn-2 hover-slide-left"
+                  target="blank"
+                  title="Code Pro"
+                  onclick="window.open('https://www.figma.com/proto/Ta9G1qwFYC8TEzDx5yQE0Y/L%C3%AA-Xu%C3%A2n-Ho%C3%A0ng---UI-Design-Foundation---Th%C3%A1ng-04%2F2024?page-id=2001%3A1380&node-id=2299-7046&node-type=canvas&viewport=-14813%2C4723%2C1.2&t=uAqerxgJjLYvneQO-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2235%3A5037')"
+                >
+                  <span>Case Study</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 pb-5 border-solid hover:shadow-xl hover:shadow-gray-400/50 border-neutral-400 border-2 rounded-lg w-[19.6875rem] md:w-[24rem] h-[28rem] md:h-[29.75rem]"
+          >
+            <img src="./image/GAO HOANG VIET.png" alt="" />
+            <div class="flex flex-col gap-5 px-5">
+              <div class="flex flex-col gap-3">
+                <div class="flex flex-col gap-1">
+                  <div class="text-sm leading-5 font-normal text-neutral-600">
+                    LOGO-BRANDING
+                  </div>
+                  <div class="text-xl leading-7 font-bold">Hoang Viet Rice</div>
+                </div>
+                <div class="text-sm leading-5 font-normal text-neutral-400">
+                  Vivamus eleifend convallis ante, non pharetra libero molestie
+                  laoreet. Donec id imperdiet lacus.
+                </div>
+              </div>
+              <div>
+                <button
+                  class="codepro-btn codepro-btn-2 hover-slide-left"
+                  target="blank"
+                  title="Code Pro"
+                  onclick="window.open('https://www.figma.com/proto/Ta9G1qwFYC8TEzDx5yQE0Y/L%C3%AA-Xu%C3%A2n-Ho%C3%A0ng---UI-Design-Foundation---Th%C3%A1ng-04%2F2024?page-id=2001%3A1380&node-id=2299-7046&node-type=canvas&viewport=-14813%2C4723%2C1.2&t=uAqerxgJjLYvneQO-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2235%3A5037')"
+                >
+                  <span>Case Study</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        href="Portfolio.html"
+        target="_self"
+        class="text-sm leading-5 md:text-lg md:leading-7 font-bold text-white hover:bg-accent-500 hover:shadow-xl hover:shadow-accent-100/50 bg-accent-100 py-2.5 px-8 rounded-lg"
+      >
+        View all
+      </a>
+    </div>
+
+    <div
+      class="flex flex-col gap-3 md:gap-10 mt-10 md:mt-24 justify-center items-center py-14 mr-auto ml-auto w-full h-[13.125rem] md:h-[25.75rem]"
+      style="background-image: url('image/Call to Action.jpg')"
+    >
+      <div class="flex flex-col gap-3 md:gap-6">
+        <div class="flex flex-col">
+          <div
+            class="text-xl leading-7 md:text-4xl md:leading-10 font-bold text-white text-center"
+          >
+            Have a project idea in mind.
+          </div>
+          <div
+            class="text-xl leading-7 md:text-4xl md:leading-10 font-bold text-white text-center"
+          >
+            Get in touch and let's chat!
+          </div>
+        </div>
+        <div
+          class="text-xs leading-5 md:text-lg md:leading-7 font-normal text-white text-center w-[20rem] md:w-[29.25rem]"
+        >
+          I am taking on new projects. Waiting to hear about new projects, so if
+          you'd like to chat please get in touch.
+        </div>
+      </div>
+      <div
+        class="flex bg-accent-100 gap-2 items-center hover:bg-accent-500 hover:shadow-xl justify-center px-4 md:px-8 py-2 md:py-2.5 w-[12rem] md:w-[16.6875rem]"
+        style="border-radius: 8px; height: 60px"
+      >
+        <div
+          class="text-sm leading-5 md:text-base md:leading-6 font-bold text-white"
+        >
+          Let’s Work Together
+        </div>
+        <img src="./image/ArrowUpRight1.png" alt="" />
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col px-7 items-center justify-between gap-4 md:gap-11 mt-10 md:mt-28 mr-auto ml-auto"
+    >
+      <div
+        class="flex flex-col items-center gap-2 md:w-[34.875rem] md:h-[7.25rem]"
+      >
+        <div class="flex flex-col items-center gap-1 md:gap-3">
+          <div class="flex gap-2">
+            <div class="text-2xl md:text-4xl leading-8 md:leading-10 font-bold">
+              Let’s Design
+            </div>
+            <div
+              class="text-2xl md:text-4xl leading-8 md:leading-10 font-bold text-accent-500"
+            >
+              Together
+            </div>
+          </div>
+          <div
+            class="w-[2rem] md:w-[4.0625rem]"
+            style="height: 1px; background-color: black"
+          ></div>
+        </div>
+        <div class="text-sm leading-5 font-normal md:text-body text-center">
+          I am taking on new projects. Waiting to hear about new projects, so if
+          you'd like to chat please get in touch.
+        </div>
+      </div>
+      <div class="flex gap-2 md:gap-6">
+        <div
+          class="text-sm leading-5 md:text-lg md:leading-7 font-normal text-neutral-500 bg-white py-2.5 px-4 md:px-8 rounded-lg border-solid border-neutral-400 border-2 w-[12rem] md:w-[26.6875rem]"
+        >
+          More Project
+        </div>
+        <a
+          href="Contact.html"
+          target="_self"
+          class="text-sm leading-5 md:text-lg md:leading-7 font-bold text-white hover:bg-accent-500 hover:shadow-xl hover:shadow-accent-100/50 bg-accent-100 py-2.5 px-4 md:px-8 rounded-lg"
+        >
+          Contact Me
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col px-7 gap-7 md:gap-10 mt-10 md:mt-24 items-center justify-center bg-accent-900"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-center items-center pt-7 md:pt-8 gap-7 md:gap-11"
+      >
+        <div class="flex flex-col items-center justify-center gap-4 md:gap-8">
+          <div
+            class="text-xl leading-7 md:text-4xl md:leading-10 font-bold text-white"
+          >
+            LEAVE US MESSAGE
+          </div>
+          <div class="flex flex-col gap-6 items-center justify-center">
+            <div class="flex flex-col gap-1">
+              <div class="flex gap-1">
+                <div class="text-red-500">*</div>
+                <div
+                  class="text-base leading-6 md:text-xl md:leading-7 font-normal text-white"
+                >
+                  Name
+                </div>
+              </div>
+              <div
+                class="w-[19.6875rem] md:w-[34.875rem]"
+                style="
+                  height: 52px;
+                  background-color: white;
+                  border-radius: 8px;
+                "
+              ></div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div
+                class="text-base leading-6 md:text-xl md:leading-7 font-normal text-white"
+              >
+                Email
+              </div>
+              <div
+                class="w-[19.6875rem] md:w-[34.875rem]"
+                style="
+                  height: 52px;
+                  background-color: white;
+                  border-radius: 8px;
+                "
+              ></div>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div
+                class="text-base leading-6 md:text-xl md:leading-7 font-normal text-white"
+              >
+                Your Message
+              </div>
+              <div
+                class="w-[19.6875rem] md:w-[34.875rem]"
+                style="
+                  height: 177px;
+                  background-color: white;
+                  border-radius: 8px;
+                "
+              ></div>
+            </div>
+          </div>
+          <div
+            class="text-sm leading-5 md:text-lg md:leading-7 font-bold hover:bg-accent-500 hover:shadow-xl text-white bg-accent-100 py-2.5 px-4 md:px-8 rounded-lg"
+          >
+            Send Massage
+          </div>
+        </div>
+        <div
+          class="flex flex-col gap-4 md:gap-16 h-[14rem] md:h-[36.3125rem] w-[19.6875rem] md:w-[34.875rem]"
+        >
+          <div class="flex gap-2 md:justify-center">
+            <div
+              class="text-xl leading-7 md:text-4xl md:leading-10 font-bold text-white text-center"
+            >
+              CONTACT
+            </div>
+            <div
+              class="text-xl leading-7 md:text-4xl md:leading-10 font-bold text-accent-100 text-center"
+            >
+              ME
+            </div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div class="flex gap-4 md:gap-6 items-center">
+              <img src="./image/Iconhome.png" alt="" />
+              <div
+                class="text-base leading-6 md:text-lg md:leading-7 font-normal text-white"
+              >
+                182 Dinh Bo Linh, Ward 24, Binh Thanh District, HCMC
+              </div>
+            </div>
+            <div class="flex gap-4 md:gap-6 items-center">
+              <img src="./image/Iconmessage.png" alt="" />
+              <div
+                class="text-base leading-6 md:text-lg md:leading-7 font-normal text-white"
+              >
+                hoangcr7777@gmail.com
+              </div>
+            </div>
+            <div class="flex gap-4 md:gap-6 items-center">
+              <img src="./image/IconPhone.png" alt="" />
+              <div
+                class="text-base leading-6 md:text-lg md:leading-7 font-normal text-white"
+              >
+                (+84) 376646518
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <marquee
+        behavior=""
+        direction="left"
+        scrollamount="20"
+        class="text-3xl md:text-heading text-white font-bold pb-8 w-[19.6875rem] md:w-[75rem]"
+        >UI/UX DESIGN ✹ GRAPHIC DESIGN ✹ USER RESEARCH ✹ VISUAL DESIGN ✹
+        BRANDING ✹ PROTOTYPING
+      </marquee>
+    </div>
+  </body>
+</html>

@@ -616,6 +616,10 @@ video {
   top: 0px;
 }
 
+.top-\[125px\] {
+  top: 125px;
+}
+
 .top-\[590px\] {
   top: 590px;
 }
@@ -1154,6 +1158,10 @@ video {
   line-height: 2rem;
 }
 
+.text-transparent {
+  color: transparent;
+}
+
 .text-accent-100 {
   --tw-text-opacity: 1;
   color: rgb(58 139 197 / var(--tw-text-opacity));
@@ -1281,8 +1289,16 @@ video {
     left: 50%;
   }
 
+  .md\:top-48 {
+    top: 12rem;
+  }
+  
   .md\:top-56 {
     top: 14rem;
+  }
+
+  .md\:top-\[393px\] {
+    top: 393px;
   }
 
   .md\:top-\[630px\] {
@@ -1607,3 +1623,41 @@ video {
   }
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* need to add to input.css*/
+.text-outline-none {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0);
+}
+
+.text-outline-white {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+.text-outline-accent {
+  --tw-text-opacity: 1;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(5 66 109 / var(--tw-text-opacity));
+}

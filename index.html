@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
       integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
@@ -29,19 +30,19 @@
     />
     <style>
       .text-container {
-        position: relative; 
-        display: inline-block; 
+        position: relative;
+        display: inline-block;
       }
 
       .bottom-text {
-        position: relative; 
+        position: relative;
       }
 
       .top-text {
-        position: absolute; 
-        top: 0; 
+        position: absolute;
+        top: 0;
         left: 0;
-        opacity: 0.8; 
+        opacity: 0.8;
       }
       .chonburi-regular {
         font-family: "Chonburi", serif;
@@ -229,21 +230,33 @@
       👋 Hi, I’m Hoang. And this is website. Thank you for visiting.
     </div>
     <div
-      class="wow animate__animated animate__fadeInRight emblema-one-regular text-center text-accent-700 leading-8 md:leading-none mt-4 md:mt-16 tracking-1 text-[32px] md:tracking-[-.1em] md:text-[137px]"
+      class="wow animate__animated animate__fadeInRight emblema-one-regular text-center leading-8 md:leading-none mt-4 md:mt-16 tracking-1 text-[32px] md:tracking-[-.1em] md:text-[137px] transition-all duration-500 text-accent-700 text-outline-white"
+      id="text1"
     >
       UI/UX Designer
     </div>
     <div
-      class="wow animate__animated animate__fadeInLeft emblema-one-regular text-center leading-8 md:leading-none mt-1 md:mt-6 text-[32px] md:text-[137px] tracking-1 md:tracking-[-.1em]"
-      style="
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: rgb(5, 66, 109);
-        -webkit-text-fill-color: rgb(255, 255, 255);
-      "
+      class="wow animate__animated animate__fadeInLeft emblema-one-regular text-center leading-8 md:leading-none mt-1 md:mt-6 text-[32px] md:text-[137px] tracking-1 md:tracking-[-.1em] transition-all duration-500 text-transparent text-outline-accent"
+      id="text2"
     >
       & GraphicDesign
     </div>
-
+    <div class="z-20 absolute top-[125px] md:top-48 bottom-0 left-0 right-0">
+      <div
+        class="wow animate__animated animate__fadeInRight emblema-one-regular text-center leading-8 md:leading-none mt-4 md:mt-16 tracking-1 text-[32px] md:tracking-[-.1em] md:text-[137px] transition-all duration-500 text-transparent text-outline-white cursor-pointer"
+        id="text1Outline"
+      >
+        UI/UX Designer
+      </div>
+      <div
+        class="wow animate__animated animate__fadeInLeft emblema-one-regular text-center leading-8 md:leading-none mt-1 md:mt-6 text-[32px] md:text-[137px] tracking-1 md:tracking-[-.1em] transition-all duration-500 text-transparent text-outline-none cursor-pointer"
+        id="text2Outline"
+        onmouseenter="toggleTextOutline(this)"
+        onmouseleave="toggleTextOutline(this)"
+      >
+        & GraphicDesign
+      </div>
+    </div>
     <div class="flex md:flex-col items-center gap-2">
       <div
         class="container flex flex-col md:flex-row items-center gap-2 justify-between md:w-[75rem]"
@@ -264,6 +277,7 @@
     <img
       src="./image/AVATAR.png"
       class="mt-7 absolute md:left-1/2 md:-translate-x-1/2 md:top-56 z-10"
+      id="avatar"
     />
     <div
       class="flex z-20 justify-center items-center border-solid border-white border-2 bg-white bg-opacity-20 gap-2 md:gap-2.5 h-[3.309573rem] md:h-[5.125rem] w-[14.8125rem] md:w-[22.9375rem] rounded-[32.29px] md:rounded-[50px] left-1/2 -translate-x-1/2 absolute top-[590px] md:top-[630px]"

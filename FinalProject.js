@@ -35,3 +35,11 @@ function mouseMoveFunc(e) {
     overwrite: true
   });
 }
+
+function toggleButton (e) {
+  e.classList.toggle("text-outline-none");
+  document.getElementById("button2").classList.toggle("bg-accent-500");
+
+  let text1ClassList = document.getElementById("button1").classList;
+  text1ClassList.toggle("bg-accent-500");
+}
